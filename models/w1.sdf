@@ -1,0 +1,44 @@
+<?xml version='1.0'?>
+<sdf xmlns:drake="http://drake.mit.edu" version="1.8">
+  <model name='w1'>
+    <link name='w1'>
+      <inertial>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+        <mass>0.00014084324823999787</mass>
+        <inertia>
+          <ixx>1.7101324883425403e-09</ixx>
+          <ixy>-4.592903242906885e-11</ixy>
+          <ixz>-4.324853242240495e-12</ixz>
+          <iyy>1.6976903290463538e-09</iyy>
+          <iyz>5.6318547559931865e-12</iyz>
+          <izz>3.233841092437274e-09</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <pose>-0.2848839203308162 -0.01596583974043668 -0.002546444879451884 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>w1.obj</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.01 .01 .0026</size>
+          </box>
+        </geometry>
+        <!-- The proximity properties immediately below enable the hydroelastic
+             contact model for this body. To use point contact instead, delete
+             or comment out the <drake:rigid_hydroelastic> element. -->
+        <drake:proximity_properties>
+          <drake:mu_dynamic>0.5</drake:mu_dynamic>
+          <drake:mu_static>0.5</drake:mu_static>
+          <drake:rigid_hydroelastic/>
+        </drake:proximity_properties>
+      </collision>
+    </link>
+  </model>
+</sdf>
